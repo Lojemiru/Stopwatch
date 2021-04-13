@@ -22,7 +22,7 @@ A struct that will trigger a function once its internal timer has reached zero.
 | :--- | :--- |
 | time {int} | The starting value for the Alarm, and the value to reset to if looped or restart()ed. |
 | function {function} | The function to run when the Alarm reaches zero. Function variables are encouraged, but global-scope ones will work as well. |
-| [loop] {bool} | Optional. Causes the Alarm to loop back to its initial `time` value once it reaches 0. |
+| [loop] {bool} | Optional. False by default. Causes the Alarm to loop back to its initial `time` value once it reaches 0. |
 
 | Internal function | Description |
 | :--- | :--- |
