@@ -14,6 +14,7 @@ function Alarm(_time, _function) constructor {
 		time = max(-1, time - 1);
 		if (time == 0) {
 			func();
+			time = -1;
 			if (loop) time = startTime;
 		}
 	}
