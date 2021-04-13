@@ -92,6 +92,10 @@ if (global.paused) exit;
 run_alarms(alarms);
 ```
 
+## Licensing
+
+This extension/repository is licensed under the MIT License. Attribution in the "special thanks" or similar section of your game credits is appreciated, but not required so long as the MIT License's conditions are met.
+
 ## Special thanks
 YoYo Games: Creating this wonderful bowl of pixel-flavored spaghetti we call GameMaker.
 
