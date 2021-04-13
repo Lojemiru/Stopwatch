@@ -11,7 +11,7 @@ Stopwatch addresses all of these issues in an efficient, easy-to-use fashion.
 ## Structs
 
 ```
-Alarm(time, function, [loop])
+Alarm(time, function, [loop], [resetTime])
 ```
 
 A struct that will trigger a function once its internal timer has reached zero.
@@ -20,9 +20,10 @@ A struct that will trigger a function once its internal timer has reached zero.
 
 | Argument | Description |
 | :--- | :--- |
-| time {int} | The starting value for the Alarm, and the value to reset to if looped or restart()ed. |
+| time {int} | The starting value for the Alarm, and the value to reset to if looped or `restart()`ed. |
 | function {function} | The function to run when the Alarm reaches zero. Function variables are encouraged, but global-scope ones will work as well. |
 | [loop] {bool} | Optional. False by default. Causes the Alarm to loop back to its initial `time` value once it reaches 0. |
+| [resetTime] {int} | Optional. `time` by default. Custom value to use on `restart()` or loop. |
 
 | Internal function | Description |
 | :--- | :--- |
@@ -67,6 +68,12 @@ Want an Alarm to automatically loop instead of re-initializing it in the trigger
 
 ```gml
 timer = new Alarm(120, test_function, true);
+```
+
+Need to have a different starting countdown from the loop time? Use the optional `resetTime` parameter to set the loop time value.
+
+```gml
+timer = new Alarm(1, test_function, true, 60);
 ```
 
 Do you need to process Alarms in bulk or quickly replace default alarms? Use the array-based functions!
