@@ -1,5 +1,5 @@
 # Stopwatch
-A simple, control-focused replacement for GameMaker: Studio 2 alarms.
+A simple, control-focused replacement for GameMaker: Studio 2.3 alarms.
 
 ## Why replace the default alarms?
 
@@ -20,14 +20,14 @@ A struct that will trigger a function once its internal timer has reached zero.
 
 | Argument | Description |
 | :--- | :--- |
-| time {int} | The starting value for the Alarm, and the value to reset to if looped or `restart()`ed. |
+| time {int} | The starting value for the Alarm, and the default value to reset to if looped or `restart()`ed. |
 | function {function} | The function to run when the Alarm reaches zero. Function variables are encouraged, but global-scope ones will work as well. |
 | [loop] {bool} | Optional. False by default. Causes the Alarm to loop back to its initial `time` value once it reaches 0. |
 | [resetTime] {int} | Optional. `time` by default. Custom value to use on `restart()` or loop. |
 
 | Internal function | Description |
 | :--- | :--- |
-| run() | Causes the Alarm to tick down by one. Will trigger the function when it reaches zero and loop back to its initial value if `loop` was set to `true`. |
+| run() | Causes the Alarm to tick down by one. Will trigger the `function` when it reaches zero and restart the countdown if `loop` was set to `true`. |
 | restart() | Resets the Alarm timer to its initial value. |
 
 ## Functions
@@ -43,7 +43,7 @@ A struct that will trigger a function once its internal timer has reached zero.
 First, you'll need to [download the latest version](https://www.github.com/Lojemiru/Stopwatch/releases/latest) and import the Stopwatch script into your project.
 You could also be doing this in the repository demo project.
 
-An Alarm can be instantiated as follows (function variables are encouraged, but this will work with global functions as well):
+An Alarm can be instantiated as follows:
 
 ```gml
 test_function = function() {
