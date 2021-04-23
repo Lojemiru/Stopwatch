@@ -10,7 +10,7 @@
 function Alarm(_time, _function) constructor {	
 	// Count down, trigger the function, and optionally loop.
 	run = function() {
-		time = max(-1, time - 1);
+		time -= time > -1;
 		if (time == 0) {
 			func();
 			time = -1;
