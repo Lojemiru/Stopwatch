@@ -7,14 +7,13 @@
 /// @arg {bool} [loop]		Optional. Defaults to false. Whether or not the Alarm should loop.
 /// @arg {int} [resetTime]	Optional. Defaults to time. Specifies a custom value to use to on 
 ///							loop or reset instead of the starting time.
-function Alarm(_time, _function, _loop = false, _startTime = _time) constructor {	
+function Alarm(_time, _function, _loop = false, _startTime = _time) constructor {
 	// Count down, trigger the function, and optionally loop.
 	run = function() {
 		time -= time > -1;
 		if (time == 0) {
 			func();
-			time = -1;
-			if (loop) time = startTime;
+			time = (startTime * loop) - !loop;
 		}
 	}
 	
