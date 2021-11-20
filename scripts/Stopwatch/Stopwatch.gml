@@ -38,19 +38,19 @@ function Alarm(_time, _function, _loop = false, _startTime = _time) constructor 
 /// @desc					Safely runs a single Alarm, exiting if it does not exist.
 /// @arg {struct} alarm		The Alarm to run.
 function run_alarm(_alarm) {
-	if (typeof(_alarm) == "struct") {
-		_alarm.run();
-	}
+	if (typeof(_alarm) != "struct") return;
+	_alarm.run();
 }
 
 /// @func					run_alarms(array)
 /// @desc					Safely runs an array of Alarms using run_alarm.
 /// @arg {array} array		The array of Alarms to run.
 function run_alarms(_array) {
-	if (typeof(_array) == "array") {
-		for (var i = 0; i < array_length(_array); i++) {
-			run_alarm(_array[i]);
-		}
+	if (typeof(_array) != "array") return;
+	var i = 0;
+	repeat (array_length(_array)) {
+		run_alarm(_array[i]);
+		++i;
 	}
 }
 
