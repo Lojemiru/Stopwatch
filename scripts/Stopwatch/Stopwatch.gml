@@ -1,3 +1,14 @@
+#macro __SW_VERSION "v1.1.0"
+#macro __SW_PREFIX "[Stopwatch]"
+#macro __SW_SOURCE "https://github.com/Lojemiru/Stopwatch"
+
+function __sw_log_force(_msg) {
+	show_debug_message(__SW_PREFIX + " " + _msg);
+}
+
+__sw_log_force("Loading Stopwatch " + __SW_VERSION + " by Lojemiru...");
+__sw_log_force("For assistance, please refer to " + __SW_SOURCE);
+
 /// @func					Alarm(time, function, [loop], [resetTime])
 /// @desc					Instantiates a new Alarm struct that will trigger a function
 ///							once its internal timer has reached 0. This timer must be run
@@ -13,6 +24,7 @@ function Alarm(_time, _function, _loop = false, _startTime = _time) constructor 
 		time -= time > -1;
 		if (time == 0) {
 			func();
+			// -1 if not looping, startTime if looping
 			time = (startTime * loop) - !loop;
 		}
 	}
@@ -63,3 +75,5 @@ function create_alarm_array(_size) {
 }
 
 #endregion
+
+__sw_log_force("Loaded.");
