@@ -9,7 +9,7 @@
 ///							loop or reset instead of the starting time.
 function Alarm(_time, _function, _loop = false, _startTime = _time) constructor {
 	// Count down, trigger the function, and optionally loop.
-	run = function() {
+	static run = function() {
 		time -= time > -1;
 		if (time == 0) {
 			func();
@@ -18,7 +18,7 @@ function Alarm(_time, _function, _loop = false, _startTime = _time) constructor 
 	}
 	
 	// Reset to the time given on creation.
-	restart = function() {
+	static restart = function() {
 		time = startTime;
 	}
 	
