@@ -59,11 +59,7 @@ function run_alarms(_array) {
 ///							and ready to be populated with Alarms.
 /// @arg {int} size			The size of the Alarm array.
 function create_alarm_array(_size) {
-	var _arr;
-	for (var i = 0; i < _size; i++) {
-		_arr[i] = noone;
-	}
-	return _arr;
+	return array_create(_size, noone);
 }
 
 #endregion
