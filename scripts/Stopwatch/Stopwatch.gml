@@ -24,9 +24,12 @@ function Alarm(_time, _function, _loop = false, _startTime = _time) constructor 
 	static run = function() {
 		time -= time > -1;
 		if (time == 0) {
-			func();
 			// -1 if not looping, startTime if looping
+			// We set this BEFORE running behavior so that time changes in func() apply as expected
 			time = (startTime * loop) - !loop;
+			
+			// Run the callback
+			func();
 		}
 	}
 	
