@@ -1,4 +1,4 @@
-#macro __SW_VERSION "v1.1.0"
+#macro __SW_VERSION "v1.1.1"
 #macro __SW_PREFIX "[Stopwatch]"
 #macro __SW_SOURCE "https://github.com/Lojemiru/Stopwatch"
 
